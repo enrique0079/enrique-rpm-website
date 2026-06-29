@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enrique Real Property Management | Your Personal Housing Expert</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>window.addEventListener("load",function(){if(typeof emailjs!=="undefined")emailjs.init("YOUR_EMAILJS_PUBLIC_KEY");});</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:       #1B3560;
+    --navy-dark:  #0F2040;
+    --navy-mid:   #1E3D6E;
+    --navy-light: #2A4F8A;
+    --red:        #C0272D;
+    --red-dark:   #9C1D22;
+    --red-light:  #E03035;
+    --white:      #FFFFFF;
+    --off-white:  #F4F6FA;
+    --muted:      #7A8FAD;
+    --border:     rgba(255,255,255,0.1);
+    --radius:     10px;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--navy-dark); color: var(--white); overflow-x: hidden; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    padding: 0 48px;
+    display: flex; align-items: center; justify-content: space-between; height: 72px;
+    background: rgba(15,32,64,0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(192,39,45,0.2);
+  }
+
+  /* SVG logo mark */
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .logo-mark { width: 44px; height: 44px; }
+  .logo-text { line-height: 1; }
+  .logo-text .l1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem; font-weight: 900; letter-spacing: 0.03em;
+    color: var(--white); text-transform: uppercase; display: block;
+  }
+  .logo-text .l2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.07em;
+    color: var(--red); text-transform: uppercase; display: block; margin-top: 1px;
+  }
+
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.65); text-decoration: none;
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--red); color: var(--white);
+    padding: 10px 24px; border-radius: 6px;
+    font-size: 0.85rem; font-weight: 700; text-decoration: none;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .nav-cta:hover { background: var(--red-light); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy-dark);
+    display: flex; align-items: center;
+    padding: 100px 48px 72px;
+    position: relative; overflow: hidden;
+  }
+
+  /* diagonal red accent block */
+  .hero::before {
+    content: '';
+    position: absolute; right: -80px; top: 0; bottom: 0;
+    width: 52%;
+    background: linear-gradient(160deg, var(--navy-mid) 0%, var(--navy) 60%);
+    clip-path: polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  .hero::after {
+    content: '';
+    position: absolute; right: 0; top: 0; bottom: 0; width: 5px;
+    background: linear-gradient(180deg, var(--red) 0%, transparent 100%);
+  }
+
+  /* grid texture on right panel */
+  .hero-grid-tex {
+    position: absolute; right: 0; top: 0; bottom: 0; width: 52%;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+  }
+
+  .hero-left {
+    position: relative; z-index: 2;
+    max-width: 540px;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(192,39,45,0.15); border: 1px solid rgba(192,39,45,0.4);
+    color: #E87A7E; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 4px; margin-bottom: 28px;
+  }
+
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(3rem, 6.5vw, 5.5rem);
+    font-weight: 900; line-height: 0.95;
+    text-transform: uppercase; letter-spacing: -0.01em;
+    margin-bottom: 24px;
+  }
+  .hero h1 .accent { color: var(--red); display: block; }
+
+  .hero-sub {
+    font-size: 1rem; line-height: 1.75;
+    color: rgba(255,255,255,0.6); font-weight: 300;
+    max-width: 440px; margin-bottom: 40px;
+  }
+
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 60px; }
+  .btn-primary {
+    background: var(--red); color: var(--white);
+    padding: 15px 32px; border-radius: 6px;
+    font-size: 0.9rem; font-weight: 700; text-decoration: none;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    transition: background 0.2s, transform 0.15s;
+    border: none; cursor: pointer; font-family: inherit;
+  }
+  .btn-primary:hover { background: var(--red-light); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent; color: var(--white);
+    padding: 15px 32px; border-radius: 6px;
+    font-size: 0.9rem; font-weight: 700; text-decoration: none;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    border: 2px solid rgba(255,255,255,0.25);
+    transition: border-color 0.2s; cursor: pointer; font-family: inherit;
+  }
+  .btn-outline:hover { border-color: var(--white); }
+
+  .hero-stats { display: flex; gap: 40px; flex-wrap: wrap; }
+  .stat { border-left: 3px solid var(--red); padding-left: 16px; }
+  .stat-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2.2rem; font-weight: 900; line-height: 1; color: var(--white);
+  }
+  .stat-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 3px; }
+
+  /* Right panel: filter card */
+  .hero-right {
+    position: absolute; right: 48px; top: 50%; transform: translateY(-50%);
+    z-index: 3; width: 380px;
+  }
+  .filter-card {
+    background: rgba(15,32,64,0.9);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-top: 3px solid var(--red);
+    border-radius: var(--radius);
+    padding: 32px; backdrop-filter: blur(16px);
+    box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+  }
+  .filter-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.4rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.04em; margin-bottom: 6px;
+  }
+  .filter-card p { font-size: 0.82rem; color: var(--muted); margin-bottom: 24px; }
+  .chip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 20px; }
+  .chip {
+    padding: 9px 10px; border-radius: 6px;
+    border: 1.5px solid rgba(255,255,255,0.15);
+    background: transparent; color: rgba(255,255,255,0.75);
+    font-size: 0.8rem; font-weight: 500; cursor: pointer;
+    transition: all 0.18s; font-family: inherit; text-align: center;
+  }
+  .chip:hover { border-color: var(--red); color: var(--white); }
+  .chip.active { background: var(--red); border-color: var(--red); color: var(--white); font-weight: 700; }
+  .chip.full { grid-column: span 2; }
+  .fc-input {
+    width: 100%; padding: 12px 16px; margin-bottom: 10px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12); border-radius: 6px;
+    color: var(--white); font-size: 0.88rem; font-family: inherit; outline: none;
+    transition: border 0.2s;
+  }
+  .fc-input::placeholder { color: rgba(255,255,255,0.3); }
+  .fc-input:focus { border-color: var(--red); }
+  .fc-submit {
+    width: 100%; background: var(--red); color: var(--white);
+    border: none; border-radius: 6px; padding: 13px;
+    font-family: inherit; font-weight: 700; font-size: 0.9rem;
+    letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer;
+    transition: background 0.2s;
+  }
+  .fc-submit:hover { background: var(--red-light); }
+
+  /* ── SECTION BASE ── */
+  section { padding: 96px 48px; }
+  .si { max-width: 1120px; margin: 0 auto; }
+  .eye {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--red); margin-bottom: 10px;
+  }
+  .sh {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900;
+    text-transform: uppercase; letter-spacing: -0.01em;
+    line-height: 1.0; margin-bottom: 14px;
+  }
+  .sd { font-size: 0.95rem; color: rgba(255,255,255,0.55); line-height: 1.75; max-width: 500px; font-weight: 300; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--navy); }
+  .sh-row { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 52px; flex-wrap: wrap; gap: 24px; }
+  .svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; }
+  .svc-card {
+    background: var(--navy-dark);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 3px solid transparent;
+    border-radius: var(--radius); padding: 30px;
+    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+  }
+  .svc-card:hover {
+    border-bottom-color: var(--red);
+    transform: translateY(-5px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.35);
+  }
+  .svc-icon {
+    font-size: 2rem; margin-bottom: 18px; display: block;
+  }
+  .svc-card h3 { font-size: 1.0rem; font-weight: 700; margin-bottom: 8px; }
+  .svc-card p { font-size: 0.84rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+  .svc-tag {
+    display: inline-block; margin-top: 16px; padding: 4px 10px;
+    background: rgba(192,39,45,0.12); border: 1px solid rgba(192,39,45,0.25);
+    color: #E87A7E; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase; border-radius: 4px;
+  }
+
+  /* ── HOW ── */
+  #how { background: var(--navy-dark); }
+  .how-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 52px; }
+  .how-step {
+    padding: 36px 28px;
+    border-left: 1px solid rgba(255,255,255,0.07);
+    position: relative;
+  }
+  .how-step:first-child { border-left: none; }
+  .step-n {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 5rem; font-weight: 900; line-height: 1;
+    color: rgba(192,39,45,0.12); margin-bottom: 12px;
+    display: block;
+  }
+  .step-bar { width: 32px; height: 3px; background: var(--red); margin-bottom: 14px; }
+  .how-step h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+  .how-step p { font-size: 0.84rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+
+  /* ── PROMISE BAND ── */
+  .promise-band {
+    background: var(--red);
+    padding: 56px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 32px; flex-wrap: wrap;
+  }
+  .promise-band h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 900;
+    text-transform: uppercase; letter-spacing: -0.01em;
+    max-width: 500px; line-height: 1.05;
+  }
+  .promise-items { display: flex; gap: 32px; flex-wrap: wrap; }
+  .promise-item { display: flex; align-items: center; gap: 12px; }
+  .promise-icon {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+  .promise-item p { font-size: 0.85rem; font-weight: 600; line-height: 1.4; max-width: 130px; }
+
+  /* ── AREAS ── */
+  #areas { background: var(--navy); }
+  .areas-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 48px; }
+  .area-tag {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--navy-dark); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px; padding: 10px 18px;
+    font-size: 0.85rem; font-weight: 500;
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: default;
+  }
+  .area-tag:hover { border-color: rgba(192,39,45,0.5); transform: translateY(-2px); }
+  .area-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--red); flex-shrink: 0; }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--navy-dark); }
+  .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 18px; margin-top: 52px; }
+  .testi-card {
+    background: var(--navy);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: var(--radius); padding: 30px;
+    display: flex; flex-direction: column;
+  }
+  .stars { color: var(--red); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 16px; }
+  .testi-card blockquote {
+    font-size: 0.92rem; line-height: 1.8; color: rgba(255,255,255,0.7);
+    font-weight: 300; flex: 1;
+  }
+  .testi-author {
+    display: flex; align-items: center; gap: 12px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 20px; margin-top: 20px;
+  }
+  .avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--red); display: flex; align-items: center;
+    justify-content: center; font-weight: 800; font-size: 0.95rem; flex-shrink: 0;
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+  .tname { font-size: 0.88rem; font-weight: 700; }
+  .trole { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--navy); }
+  .contact-wrap {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .contact-form-box {
+    background: var(--navy-dark); border: 1px solid rgba(255,255,255,0.08);
+    border-top: 4px solid var(--red); border-radius: var(--radius); padding: 40px;
+  }
+  .contact-form-box h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.6rem; font-weight: 900; text-transform: uppercase; margin-bottom: 6px;
+  }
+  .contact-form-box p { font-size: 0.85rem; color: var(--muted); margin-bottom: 28px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .fi {
+    width: 100%; padding: 12px 16px; margin-bottom: 12px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 6px;
+    color: var(--white); font-size: 0.88rem; font-family: inherit; outline: none;
+    transition: border 0.2s;
+  }
+  .fi::placeholder { color: rgba(255,255,255,0.3); }
+  .fi:focus { border-color: var(--red); }
+  .fs { width: 100%; margin-bottom: 12px; }
+  .f-submit {
+    width: 100%; background: var(--red); color: var(--white);
+    border: none; border-radius: 6px; padding: 14px;
+    font-family: inherit; font-weight: 700; font-size: 0.95rem;
+    letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer;
+    transition: background 0.2s; margin-top: 4px;
+  }
+  .f-submit:hover { background: var(--red-light); }
+
+  .contact-info h2 { margin-bottom: 20px; }
+  .contact-info .sd { margin-bottom: 40px; }
+  .contact-methods { display: flex; flex-direction: column; gap: 16px; }
+  .cm {
+    display: flex; align-items: center; gap: 16px;
+    background: var(--navy-dark); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px; padding: 18px 22px;
+  }
+  .cm-icon {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: rgba(192,39,45,0.15); border: 1px solid rgba(192,39,45,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; flex-shrink: 0;
+  }
+  .cm-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+  .cm-value { font-size: 0.95rem; font-weight: 600; margin-top: 2px; color: var(--white); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #060E1A;
+    padding: 40px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 20px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .fl { display: flex; gap: 24px; }
+  .fl a { font-size: 0.8rem; color: var(--muted); text-decoration: none; }
+  .fl a:hover { color: var(--white); }
+  footer p { font-size: 0.78rem; color: var(--muted); }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed; bottom: 28px; right: 28px; z-index: 999;
+    background: var(--navy-dark); color: var(--white);
+    border: 1px solid var(--red);
+    border-left: 4px solid var(--red);
+    padding: 14px 22px; border-radius: 8px; font-size: 0.88rem; font-weight: 500;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    transform: translateY(80px); opacity: 0;
+    transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    max-width: 320px;
+  }
+  .toast.show { transform: translateY(0); opacity: 1; }
+
+  /* ── WHATSAPP FLOAT ── */
+  .wa-float {
+    position: fixed; bottom: 28px; left: 28px; z-index: 300;
+    width: 54px; height: 54px; border-radius: 50%;
+    background: var(--red); box-shadow: 0 4px 20px rgba(192,39,45,0.5);
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(192,39,45,0.65); }
+  .wa-float svg { width: 30px; height: 30px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1000px) {
+    .hero-right { position: relative; right: auto; top: auto; transform: none; width: 100%; max-width: 480px; }
+    .hero { flex-direction: column; gap: 48px; align-items: flex-start; padding-bottom: 80px; }
+    .hero::before { display: none; }
+    .hero-grid-tex { display: none; }
+    .contact-wrap { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 700px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    section { padding: 64px 20px; }
+    .hero { padding: 96px 20px 64px; }
+    .promise-band { padding: 40px 20px; }
+    footer { padding: 32px 20px; flex-direction: column; }
+    .form-row { grid-template-columns: 1fr; }
+    .how-step { border-left: none; border-top: 1px solid rgba(255,255,255,0.07); padding: 28px 0; }
+    .how-step:first-child { border-top: none; }
+    .how-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── FORM STATES ── */
+  .f-submit.loading { opacity: 0.7; cursor: not-allowed; pointer-events: none; }
+  .field-error { border-color: var(--red) !important; }
+  .field-hint { font-size: 0.75rem; color: #E87A7E; margin-top: -8px; margin-bottom: 10px; display: none; }
+  .field-hint.show { display: block; }
+
+  /* ── SETUP BANNER ── */
+  .setup-banner {
+    background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.3);
+    border-left: 4px solid #C9A84C; border-radius: 8px;
+    padding: 16px 20px; margin-bottom: 24px;
+    font-size: 0.82rem; line-height: 1.7; color: rgba(255,255,255,0.8);
+  }
+  .setup-banner strong { color: #E8C87A; display: block; margin-bottom: 4px; font-size: 0.85rem; }
+  .setup-banner a { color: #E8C87A; }
+  .setup-banner code {
+    background: rgba(0,0,0,0.3); padding: 1px 6px; border-radius: 3px;
+    font-size: 0.8rem; font-family: monospace; color: #E8C87A;
+  }
+
+  /* ── LEAD LOG ── */
+  #lead-log {
+    background: var(--navy-dark); border: 1px solid rgba(255,255,255,0.08);
+    border-top: 4px solid var(--red); border-radius: var(--radius);
+    padding: 32px; margin-top: 0; display: none;
+  }
+  #lead-log h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.4rem; font-weight: 900; text-transform: uppercase; margin-bottom: 6px;
+  }
+  #lead-log p.sub { font-size: 0.82rem; color: var(--muted); margin-bottom: 20px; }
+  .lead-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  .lead-table th {
+    text-align: left; padding: 10px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    color: var(--muted); font-weight: 600; text-transform: uppercase;
+    font-size: 0.7rem; letter-spacing: 0.08em;
+  }
+  .lead-table td {
+    padding: 12px 12px; border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.8); vertical-align: top;
+  }
+  .lead-table tr:last-child td { border-bottom: none; }
+  .lead-table tr:hover td { background: rgba(255,255,255,0.03); }
+  .lead-badge {
+    display: inline-block; padding: 3px 8px; border-radius: 4px;
+    font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+    background: rgba(192,39,45,0.15); color: #E87A7E; border: 1px solid rgba(192,39,45,0.25);
+  }
+  .log-actions { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+  .log-btn {
+    padding: 8px 18px; border-radius: 6px; font-size: 0.8rem; font-weight: 700;
+    font-family: inherit; cursor: pointer; letter-spacing: 0.04em; text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .log-btn.primary { background: var(--red); color: white; border: none; }
+  .log-btn.primary:hover { background: var(--red-light); }
+  .log-btn.ghost { background: transparent; color: var(--muted); border: 1px solid rgba(255,255,255,0.15); }
+  .log-btn.ghost:hover { color: white; border-color: rgba(255,255,255,0.4); }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <!-- Inline SVG logo mark: house + R -->
+    <svg class="logo-mark" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="44" height="44" rx="6" fill="#1B3560"/>
+      <!-- house outline -->
+      <path d="M8 22L22 10L36 22V38H28V30H16V38H8V22Z" fill="white" opacity="0.15"/>
+      <path d="M8 22L22 10L36 22" stroke="white" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
+      <!-- R letterform -->
+      <text x="14" y="36" font-family="Arial Black, sans-serif" font-size="18" font-weight="900" fill="white">R</text>
+      <!-- red accent bar -->
+      <rect x="8" y="40" width="28" height="3" rx="1.5" fill="#C0272D"/>
+    </svg>
+    <div class="logo-text">
+      <span class="l1">Enrique</span>
+      <span class="l2">Real Property Management</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#areas">Areas</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Find My Home</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-tex"></div>
+
+  <div class="hero-left">
+    <div class="hero-badge">&#9679; Enrique · Serving All 50 States</div>
+    <h1>
+      Every type<br>of rental.
+      <span class="accent">Any area.</span>
+    </h1>
+    <p class="hero-sub">
+      Short stays. Long leases. Vacation homes. Student housing. Corporate moves.
+      I find the right property for your life — across every US state and into Canada — quickly, honestly, and without the stress.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Find My Property</a>
+      <a href="#services" class="btn-outline">See What I Do</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Families Housed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">USA-Wide</div>
+        <div class="stat-label">All 50 States</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">&lt;48h</div>
+        <div class="stat-label">First Response</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="filter-card">
+      <h3>What do you need?</h3>
+      <p>Pick your rental type and I'll get to work.</p>
+      <div class="chip-grid">
+        <button class="chip active" onclick="pick(this)">Short-Term</button>
+        <button class="chip" onclick="pick(this)">Long-Term</button>
+        <button class="chip" onclick="pick(this)">Holiday Rental</button>
+        <button class="chip" onclick="pick(this)">Shared Housing</button>
+        <button class="chip" onclick="pick(this)">Student Let</button>
+        <button class="chip" onclick="pick(this)">Corporate</button>
+        <button class="chip full" onclick="pick(this)">Not Sure Yet — Help Me Decide</button>
+      </div>
+      <input class="fc-input" id="h-area" type="text" placeholder="City, state, or anywhere in the US" />
+      <button class="fc-submit" onclick="heroGo()">Start My Search →</button>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="si">
+    <div class="sh-row">
+      <div>
+        <p class="eye">What I Do</p>
+        <h2 class="sh">Every rental.<br>Covered.</h2>
+      </div>
+      <p class="sd">I'm not tied to one landlord or one city. Whatever housing situation you're in, I have a solution for it.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <span class="svc-icon">🏙️</span>
+        <h3>Short-Term Rentals</h3>
+        <p>Furnished apartments, serviced suites, and flexible leases — from a few weeks to a few months.</p>
+        <span class="svc-tag">Weekly · Monthly</span>
+      </div>
+      <div class="svc-card">
+        <span class="svc-icon">🏠</span>
+        <h3>Long-Term Rentals</h3>
+        <p>Stable, quality homes with fair terms and landlords you can trust. Somewhere to truly settle.</p>
+        <span class="svc-tag">6 Months – Years</span>
+      </div>
+      <div class="svc-card">
+        <span class="svc-icon">🌴</span>
+        <h3>Holiday Rentals</h3>
+        <p>Holiday homes, beach houses, city escapes — I find the hidden gems the big platforms miss.</p>
+        <span class="svc-tag">Days · Weekends</span>
+      </div>
+      <div class="svc-card">
+        <span class="svc-icon">💼</span>
+        <h3>Corporate & Relocation</h3>
+        <p>Moving for work or relocating staff? Fully furnished rentals, fast turnarounds, full support.</p>
+        <span class="svc-tag">Business Rentals</span>
+      </div>
+      <div class="svc-card">
+        <span class="svc-icon">🎓</span>
+        <h3>Student Housing</h3>
+        <p>Safe, affordable rooms near campus. I know what a student lease should and shouldn't say.</p>
+        <span class="svc-tag">Academic Year</span>
+      </div>
+      <div class="svc-card">
+        <span class="svc-icon">🔑</span>
+        <h3>House Shares & Rooms</h3>
+        <p>Looking for a room or filling one? I match people to house shares that actually work.</p>
+        <span class="svc-tag">Rooms · House Shares</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="si">
+    <p class="eye">The Process</p>
+    <h2 class="sh">Simple from first<br>message to keys.</h2>
+    <div class="how-grid">
+      <div class="how-step">
+        <span class="step-n">01</span>
+        <div class="step-bar"></div>
+        <h3>Tell Me Your Situation</h3>
+        <p>A quick conversation — by phone, text, or email. No paperwork, no pressure. No forms, no jargon. Just tell me what you need and when.</p>
+      </div>
+      <div class="how-step">
+        <span class="step-n">02</span>
+        <div class="step-bar"></div>
+        <h3>I Do the Search</h3>
+        <p>I tap my network of landlords, agents, and off-market listings. Many options never appear on public platforms.</p>
+      </div>
+      <div class="how-step">
+        <span class="step-n">03</span>
+        <div class="step-bar"></div>
+        <h3>You Choose</h3>
+        <p>I send you a shortlist of real, vetted options with honest pros and cons. Zero pressure. Your call entirely.</p>
+      </div>
+      <div class="how-step">
+        <span class="step-n">04</span>
+        <div class="step-bar"></div>
+        <h3>I Handle the Rest</h3>
+        <p>Viewings, negotiations, paperwork — I stay with you until you're in and settled, keys in hand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMISE BAND -->
+<div class="promise-band">
+  <h2>My commitment<br>to every renter.</h2>
+  <div class="promise-items">
+    <div class="promise-item">
+      <div class="promise-icon">🤝</div>
+      <p>Honest advice, always</p>
+    </div>
+    <div class="promise-item">
+      <div class="promise-icon">⚡</div>
+      <p>Fast response, every time</p>
+    </div>
+    <div class="promise-item">
+      <div class="promise-icon">🌍</div>
+      <p>Any area, no limits</p>
+    </div>
+    <div class="promise-item">
+      <div class="promise-icon">🛡️</div>
+      <p>Your interests first</p>
+    </div>
+  </div>
+</div>
+
+<!-- AREAS -->
+<section id="areas">
+  <div class="si">
+    <p class="eye">Where I Work</p>
+    <h2 class="sh">Active everywhere.<br>Specialist anywhere.</h2>
+    <p class="sd" style="margin-top:10px;">Serving clients across all 50 states and into Canada. If you need it, I'll find it — wherever it is.</p>
+    <div class="areas-grid" id="aGrid"></div>
+    <p style="margin-top:28px; font-size:0.85rem; color:var(--muted);">
+      Don't see your city? <a href="#contact" style="color:var(--red);font-weight:700;text-decoration:none;">Get in touch — I cover every state →</a>
+    </p>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="si">
+    <p class="eye">Real Clients</p>
+    <h2 class="sh">What people say<br>after working with me.</h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>Three months searching on my own and nothing. One call and I had four real options within a week. Moved in two weeks later. Total game changer.</blockquote>
+        <div class="testi-author">
+          <div class="avatar">M</div>
+          <div>
+            <div class="tname">Marcus T.</div>
+            <div class="trole">Long-term rental, Chicago, IL</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>Needed a holiday home for eight people on short notice. Not only did they find something perfect — it was cheaper than anything we'd seen ourselves. Unreal service.</blockquote>
+        <div class="testi-author">
+          <div class="avatar">A</div>
+          <div>
+            <div class="tname">Adaeze O.</div>
+            <div class="trole">Vacation rental, Miami, FL</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>Relocated for work with three weeks' notice. They sorted a furnished flat, explained every contract clause, and even gave me local tips. Wouldn't trust anyone else.</blockquote>
+        <div class="testi-author">
+          <div class="avatar">J</div>
+          <div>
+            <div class="tname">James K.</div>
+            <div class="trole">Corporate relocation, New York, NY</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="si">
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <p class="eye">Get In Touch</p>
+        <h2 class="sh">Ready to find<br>your home?</h2>
+        <p class="sd">Fill in the form and I'll be back to you within 24 hours. Or reach me directly — whichever suits you.</p>
+        <div class="contact-methods">
+          <div class="cm">
+            <div class="cm-icon">📞</div>
+            <div>
+              <div class="cm-label">Phone / Text</div>
+              <div class="cm-value">5318952968</div>
+            </div>
+          </div>
+          <div class="cm">
+            <div class="cm-icon">✉️</div>
+            <div>
+              <div class="cm-label">Email</div>
+              <div class="cm-value">enrique@realpropertymgt.org</div>
+            </div>
+          </div>
+          <div class="cm">
+            <div class="cm-icon">🕐</div>
+            <div>
+              <div class="cm-label">Response Time</div>
+              <div class="cm-value">Usually within a few hours</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-box">
+        <div class="setup-banner">
+          <strong>One-time setup to activate email + SMS notifications:</strong>
+          1. Sign up free at <a href="https://www.emailjs.com" target="_blank">emailjs.com</a><br>
+          2. Add your Gmail as an Email Service, and Twilio for SMS<br>
+          3. Create an Email Template using: <code>{{from_name}}</code> <code>{{from_phone}}</code> <code>{{rental_type}}</code> <code>{{area}}</code><br>
+          4. Replace <code>YOUR_EMAILJS_PUBLIC_KEY</code>, <code>YOUR_SERVICE_ID</code>, <code>YOUR_TEMPLATE_ID</code> at the top of the script<br>
+          <em style="color:var(--muted);font-size:0.75rem;">Delete this banner once you go live.</em>
+        </div>
+        <h3>Send Your Request</h3>
+        <p>Quick form — I'll take it from there.</p>
+        <div class="form-row">
+          <input class="fi" id="c-fname" type="text" placeholder="First name" oninput="clearErr('c-fname','hint-name')" />
+          <input class="fi" id="c-lname" type="text" placeholder="Last name" /><div class="field-hint" id="hint-name" style="grid-column:span 2">Please enter your first name</div>
+        </div>
+        <input class="fi fs" id="c-phone" type="tel" placeholder="Phone or text number" oninput="clearErr('c-phone','hint-phone')" /><div class="field-hint" id="hint-phone">Please enter a valid phone number</div>
+        <input class="fi fs" id="c-email" type="email" placeholder="Email address (optional)" oninput="clearErr('c-email','hint-email')" /><div class="field-hint" id="hint-email">Please enter a valid email address</div>
+        <select class="fi fs" id="c-type">
+          <option value="" disabled selected>Type of rental needed</option>
+          <option>Short-Term Rental</option>
+          <option>Long-Term Rental</option>
+          <option>Holiday Rental</option>
+          <option>Corporate / Relocation</option>
+          <option>Student Housing</option>
+          <option>House Share / Room</option>
+          <option>Not Sure Yet</option>
+        </select>
+        <input class="fi fs" id="c-area" type="text" placeholder="City, state, or 'anywhere in the US'" />
+        <button class="f-submit" onclick="submitForm()">Send My Request</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- LEAD LOG -->
+<section style="background:var(--navy);padding:0 48px 80px;">
+  <div style="max-width:1120px;margin:0 auto;">
+    <div id="lead-log">
+      <h3>Lead Log</h3>
+      <p class="sub">Every inquiry submitted through your site — saved for this session. Export to CSV to keep permanently.</p>
+      <div style="overflow-x:auto;">
+        <table class="lead-table">
+          <thead>
+            <tr><th>#</th><th>Name</th><th>Phone</th><th>Email</th><th>Type</th><th>Area</th><th>Received</th></tr>
+          </thead>
+          <tbody id="lead-tbody"></tbody>
+        </table>
+      </div>
+      <div class="log-actions">
+        <button class="log-btn primary" onclick="exportCSV()">Export CSV</button>
+        <button class="log-btn ghost" onclick="clearLeads()">Clear Log</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a class="nav-logo" href="#" style="text-decoration:none;">
+    <svg class="logo-mark" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="44" height="44" rx="6" fill="#1B3560"/>
+      <path d="M8 22L22 10L36 22" stroke="white" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
+      <text x="14" y="36" font-family="Arial Black, sans-serif" font-size="18" font-weight="900" fill="white">R</text>
+      <rect x="8" y="40" width="28" height="3" rx="1.5" fill="#C0272D"/>
+    </svg>
+    <div class="logo-text">
+      <span class="l1">Enrique</span>
+      <span class="l2">Real Property Management</span>
+    </div>
+  </a>
+  <p>© 2026 · Enrique Real Property Management · Serving the USA & North America</p>
+  <div class="fl">
+    <a href="#services">Services</a>
+    <a href="#areas">Areas</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+
+<a class="wa-float" aria-label="Text Enrique" href="sms:5318952968" title="Text Enrique">
+  <svg viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M26 2H6C4.343 2 3 3.343 3 5v16c0 1.657 1.343 3 3 3h4v5l6-5h10c1.657 0 3-1.343 3-3V5c0-1.657-1.343-3-3-3zm-14 10H9V9h3v3zm5 0h-3V9h3v3zm5 0h-3V9h3v3z"/>
+  </svg>
+</a>
+
+<div class="toast" id="toast"></div>
+
+
+</html>
+<script>
+  // ── CONFIG — replace after EmailJS setup ──
+  const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
+  const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+
+  // ── CHIP PICKER ──
+  function pick(el) {
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  // ── HERO SEARCH ──
+  function heroGo() {
+    const type = document.querySelector('.chip.active')?.textContent || 'a rental';
+    const area = document.getElementById('h-area').value.trim() || 'your area';
+    showToast('Got it — looking for ' + type.toLowerCase() + ' in ' + area + '. Fill in your details below.');
+    setTimeout(() => document.getElementById('contact').scrollIntoView({behavior:'smooth'}), 900);
+  }
+
+  // ── VALIDATION HELPERS ──
+  function clearErr(fieldId, hintId) {
+    const f = document.getElementById(fieldId);
+    const h = document.getElementById(hintId);
+    if (f) f.classList.remove('field-error');
+    if (h) h.classList.remove('show');
+  }
+  function showErr(fieldId, hintId) {
+    const f = document.getElementById(fieldId);
+    const h = document.getElementById(hintId);
+    if (f) f.classList.add('field-error');
+    if (h) h.classList.add('show');
+  }
+  function isValidEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
+  function isValidPhone(p) { return /[\d\s\-\+\(\)]{7,}/.test(p); }
+
+  // ── LEAD STORAGE (session-based) ──
+  let leads = [];
+  try { leads = JSON.parse(sessionStorage.getItem('rpm_leads') || '[]'); } catch(e){}
+
+  function saveLead(data) {
+    data.id   = leads.length + 1;
+    data.time = new Date().toLocaleString('en-US', {month:'short',day:'numeric',hour:'numeric',minute:'2-digit',hour12:true});
+    leads.push(data);
+    try { sessionStorage.setItem('rpm_leads', JSON.stringify(leads)); } catch(e){}
+    renderLeads();
+  }
+
+  function renderLeads() {
+    const tbody = document.getElementById('lead-tbody');
+    const log   = document.getElementById('lead-log');
+    if (!leads.length) { if(log) log.style.display='none'; return; }
+    if(log) log.style.display = 'block';
+    if(!tbody) return;
+    tbody.innerHTML = leads.slice().reverse().map(function(l) {
+      return '<tr>' +
+        '<td style="color:var(--muted)">#' + l.id + '</td>' +
+        '<td><strong>' + l.name + '</strong></td>' +
+        '<td><a href="sms:' + l.phone + '" style="color:var(--red);text-decoration:none;">' + l.phone + '</a></td>' +
+        '<td><a href="mailto:' + (l.email||'') + '" style="color:var(--red);text-decoration:none;">' + (l.email||'—') + '</a></td>' +
+        '<td><span class="lead-badge">' + (l.type||'—') + '</span></td>' +
+        '<td>' + (l.area||'—') + '</td>' +
+        '<td style="color:var(--muted);white-space:nowrap">' + l.time + '</td>' +
+      '</tr>';
+    }).join('');
+  }
+
+  function exportCSV() {
+    var headers = ['#','Name','Phone','Email','Type','Area','Received'];
+    var rows = leads.map(function(l){ return [l.id,l.name,l.phone,l.email||'',l.type||'',l.area||'',l.time]; });
+    var csv  = [headers].concat(rows).map(function(r){ return r.map(function(v){ return '"'+String(v).replace(/"/g,'""')+'"'; }).join(','); }).join('\n');
+    var a = document.createElement('a');
+    a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+    a.download = 'rpm-leads-' + new Date().toISOString().slice(0,10) + '.csv';
+    a.click();
+  }
+
+  function clearLeads() {
+    if (!confirm('Clear all leads from this session?')) return;
+    leads = [];
+    try { sessionStorage.removeItem('rpm_leads'); } catch(e){}
+    renderLeads();
+  }
+
+  // ── FORM SUBMIT ──
+  function submitForm() {
+    var fname = document.getElementById('c-fname').value.trim();
+    var lname = document.getElementById('c-lname').value.trim();
+    var phone = document.getElementById('c-phone').value.trim();
+    var email = document.getElementById('c-email').value.trim();
+    var type  = document.getElementById('c-type').value;
+    var area  = document.getElementById('c-area').value.trim();
+    var btn   = document.querySelector('.f-submit');
+
+    // Validate required fields
+    var valid = true;
+    if (!fname) { showErr('c-fname','hint-name'); valid = false; }
+    if (!isValidPhone(phone)) { showErr('c-phone','hint-phone'); valid = false; }
+    if (email && !isValidEmail(email)) { showErr('c-email','hint-email'); valid = false; }
+    if (!valid) { showToast('Please fill in the required fields.'); return; }
+
+    var fullName = (fname + ' ' + lname).trim();
+
+    // Always save locally first
+    saveLead({ name: fullName, phone: phone, email: email, type: type, area: area });
+
+    // Send via EmailJS if configured
+    var isConfigured = EMAILJS_SERVICE_ID !== 'YOUR_SERVICE_ID';
+
+    if (isConfigured) {
+      btn.classList.add('loading');
+      btn.textContent = 'Sending...';
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        from_name:   fullName,
+        from_email:  email || 'Not provided',
+        from_phone:  phone,
+        rental_type: type  || 'Not specified',
+        area:        area  || 'Not specified',
+        to_email:    'enrique@realpropertymgt.org'
+      }).then(function() {
+        btn.classList.remove('loading');
+        btn.textContent = 'Send My Request';
+        showToast('Thanks ' + fname + '! Message sent — I\'ll be in touch within 24 hours.');
+        clearFormFields();
+      }).catch(function(err) {
+        btn.classList.remove('loading');
+        btn.textContent = 'Send My Request';
+        console.error('EmailJS:', err);
+        showToast('Thanks ' + fname + '! Lead saved. I\'ll follow up at ' + phone + '.');
+        clearFormFields();
+      });
+    } else {
+      // Not yet configured — still save and confirm
+      showToast('Thanks ' + fname + '! Your request has been saved below. Configure EmailJS for live notifications.');
+      clearFormFields();
+    }
+  }
+
+  function clearFormFields() {
+    ['c-fname','c-lname','c-phone','c-email','c-area'].forEach(function(id){
+      var el = document.getElementById(id);
+      if(el) el.value = '';
+    });
+    var sel = document.getElementById('c-type');
+    if(sel) sel.selectedIndex = 0;
+  }
+
+  // ── TOAST ──
+  function showToast(msg) {
+    var t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(function(){ t.classList.remove('show'); }, 5000);
+  }
+
+  // ── AREAS ──
+  var areaList = [
+    'New York, NY','Los Angeles, CA','Chicago, IL','Houston, TX','Phoenix, AZ',
+    'Philadelphia, PA','San Antonio, TX','San Diego, CA','Dallas, TX','San Jose, CA',
+    'Austin, TX','Jacksonville, FL','Miami, FL','Atlanta, GA','Washington, DC',
+    'Boston, MA','Las Vegas, NV','Seattle, WA','Denver, CO','Nashville, TN',
+    'Orlando, FL','Charlotte, NC','Tampa, FL','Baltimore, MD','Detroit, MI',
+    'Portland, OR','Minneapolis, MN','Raleigh, NC','New Orleans, LA',
+    'Toronto, Canada','Vancouver, Canada','Any US State','Any North American City'
+  ];
+  var g = document.getElementById('aGrid');
+  areaList.forEach(function(a) {
+    var d = document.createElement('div');
+    d.className = 'area-tag';
+    d.innerHTML = '<span class="area-dot"></span><span>' + a + '</span>';
+    g.appendChild(d);
+  });
+
+  // ── SCROLL NAV ──
+  window.addEventListener('scroll', function() {
+    document.querySelector('nav').style.background =
+      window.scrollY > 50 ? 'rgba(15,32,64,0.98)' : 'rgba(15,32,64,0.92)';
+  });
+
+  // ── INIT ──
+  renderLeads();
+</script>
+</body>
+</html>
