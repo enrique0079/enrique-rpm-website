@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Enrique Real Property Management | Your Personal Housing Expert</title>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script>window.addEventListener("load",function(){if(typeof emailjs!=="undefined")emailjs.init("YOUR_EMAILJS_PUBLIC_KEY");});</script>
+    <script>window.addEventListener("load",function(){if(typeof emailjs!=="undefined")emailjs.init("Mvqu4tqZmO78BkGoY");});</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -787,14 +787,7 @@
       </div>
 
       <div class="contact-form-box">
-        <div class="setup-banner">
-          <strong>One-time setup to activate email + SMS notifications:</strong>
-          1. Sign up free at <a href="https://www.emailjs.com" target="_blank">emailjs.com</a><br>
-          2. Add your Gmail as an Email Service, and Twilio for SMS<br>
-          3. Create an Email Template using: <code>{{from_name}}</code> <code>{{from_phone}}</code> <code>{{rental_type}}</code> <code>{{area}}</code><br>
-          4. Replace <code>YOUR_EMAILJS_PUBLIC_KEY</code>, <code>YOUR_SERVICE_ID</code>, <code>YOUR_TEMPLATE_ID</code> at the top of the script<br>
-          <em style="color:var(--muted);font-size:0.75rem;">Delete this banner once you go live.</em>
-        </div>
+        
         <h3>Send Your Request</h3>
         <p>Quick form — I'll take it from there.</p>
         <div class="form-row">
@@ -879,8 +872,8 @@
 </html>
 <script>
   // ── CONFIG — replace after EmailJS setup ──
-  const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
-  const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+  const EMAILJS_SERVICE_ID  = 'service_xk5s7p6';
+  const EMAILJS_TEMPLATE_ID = 'template_kjunis1';
 
   // ── CHIP PICKER ──
   function pick(el) {
@@ -983,7 +976,7 @@
     saveLead({ name: fullName, phone: phone, email: email, type: type, area: area });
 
     // Send via EmailJS if configured
-    var isConfigured = EMAILJS_SERVICE_ID !== 'YOUR_SERVICE_ID';
+    var isConfigured = EMAILJS_SERVICE_ID !== 'service_xk5s7p6';
 
     if (isConfigured) {
       btn.classList.add('loading');
