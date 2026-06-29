@@ -464,45 +464,58 @@
     font-size: 0.8rem; font-family: monospace; color: #E8C87A;
   }
 
-  /* ── LEAD LOG ── */
-  #lead-log {
-    background: var(--navy-dark); border: 1px solid rgba(255,255,255,0.08);
-    border-top: 4px solid var(--red); border-radius: var(--radius);
-    padding: 32px; margin-top: 0; display: none;
+  /* ── WHATSAPP FLOAT ── */
+  .wa-float {
+    position: fixed; bottom: 28px; left: 28px; z-index: 300;
+    width: 54px; height: 54px; border-radius: 50%;
+    background: var(--red); box-shadow: 0 4px 20px rgba(192,39,45,0.5);
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
   }
-  #lead-log h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.4rem; font-weight: 900; text-transform: uppercase; margin-bottom: 6px;
+  .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(192,39,45,0.65); }
+  .wa-float svg { width: 30px; height: 30px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1000px) {
+    .hero-right { position: relative; right: auto; top: auto; transform: none; width: 100%; max-width: 480px; }
+    .hero { flex-direction: column; gap: 48px; align-items: flex-start; padding-bottom: 80px; }
+    .hero::before { display: none; }
+    .hero-grid-tex { display: none; }
+    .contact-wrap { grid-template-columns: 1fr; }
   }
-  #lead-log p.sub { font-size: 0.82rem; color: var(--muted); margin-bottom: 20px; }
-  .lead-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
-  .lead-table th {
-    text-align: left; padding: 10px 12px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    color: var(--muted); font-weight: 600; text-transform: uppercase;
-    font-size: 0.7rem; letter-spacing: 0.08em;
+  @media (max-width: 700px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    section { padding: 64px 20px; }
+    .hero { padding: 96px 20px 64px; }
+    .promise-band { padding: 40px 20px; }
+    footer { padding: 32px 20px; flex-direction: column; }
+    .form-row { grid-template-columns: 1fr; }
+    .how-step { border-left: none; border-top: 1px solid rgba(255,255,255,0.07); padding: 28px 0; }
+    .how-step:first-child { border-top: none; }
+    .how-grid { grid-template-columns: 1fr; }
   }
-  .lead-table td {
-    padding: 12px 12px; border-bottom: 1px solid rgba(255,255,255,0.05);
-    color: rgba(255,255,255,0.8); vertical-align: top;
+
+  /* ── FORM STATES ── */
+  .f-submit.loading { opacity: 0.7; cursor: not-allowed; pointer-events: none; }
+  .field-error { border-color: var(--red) !important; }
+  .field-hint { font-size: 0.75rem; color: #E87A7E; margin-top: -8px; margin-bottom: 10px; display: none; }
+  .field-hint.show { display: block; }
+
+  /* ── SETUP BANNER ── */
+  .setup-banner {
+    background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.3);
+    border-left: 4px solid #C9A84C; border-radius: 8px;
+    padding: 16px 20px; margin-bottom: 24px;
+    font-size: 0.82rem; line-height: 1.7; color: rgba(255,255,255,0.8);
   }
-  .lead-table tr:last-child td { border-bottom: none; }
-  .lead-table tr:hover td { background: rgba(255,255,255,0.03); }
-  .lead-badge {
-    display: inline-block; padding: 3px 8px; border-radius: 4px;
-    font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
-    background: rgba(192,39,45,0.15); color: #E87A7E; border: 1px solid rgba(192,39,45,0.25);
+  .setup-banner strong { color: #E8C87A; display: block; margin-bottom: 4px; font-size: 0.85rem; }
+  .setup-banner a { color: #E8C87A; }
+  .setup-banner code {
+    background: rgba(0,0,0,0.3); padding: 1px 6px; border-radius: 3px;
+    font-size: 0.8rem; font-family: monospace; color: #E8C87A;
   }
-  .log-actions { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
-  .log-btn {
-    padding: 8px 18px; border-radius: 6px; font-size: 0.8rem; font-weight: 700;
-    font-family: inherit; cursor: pointer; letter-spacing: 0.04em; text-transform: uppercase;
-    transition: all 0.2s;
-  }
-  .log-btn.primary { background: var(--red); color: white; border: none; }
-  .log-btn.primary:hover { background: var(--red-light); }
-  .log-btn.ghost { background: transparent; color: var(--muted); border: 1px solid rgba(255,255,255,0.15); }
-  .log-btn.ghost:hover { color: white; border-color: rgba(255,255,255,0.4); }
+
 
 </style>
 </head>
@@ -814,28 +827,6 @@
 </section>
 
 
-<!-- LEAD LOG -->
-<section style="background:var(--navy);padding:0 48px 80px;">
-  <div style="max-width:1120px;margin:0 auto;">
-    <div id="lead-log">
-      <h3>Lead Log</h3>
-      <p class="sub">Every inquiry submitted through your site — saved for this session. Export to CSV to keep permanently.</p>
-      <div style="overflow-x:auto;">
-        <table class="lead-table">
-          <thead>
-            <tr><th>#</th><th>Name</th><th>Phone</th><th>Email</th><th>Type</th><th>Area</th><th>Received</th></tr>
-          </thead>
-          <tbody id="lead-tbody"></tbody>
-        </table>
-      </div>
-      <div class="log-actions">
-        <button class="log-btn primary" onclick="exportCSV()">Export CSV</button>
-        <button class="log-btn ghost" onclick="clearLeads()">Clear Log</button>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- FOOTER -->
 <footer>
   <a class="nav-logo" href="#" style="text-decoration:none;">
@@ -917,7 +908,7 @@
     renderLeads();
   }
 
-  function renderLeads() {
+  function renderLeads() { return; // lead log hidden
     const tbody = document.getElementById('lead-tbody');
     const log   = document.getElementById('lead-log');
     if (!leads.length) { if(log) log.style.display='none'; return; }
